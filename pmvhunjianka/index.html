@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pmv混剪卡点抱插-节奏拆解与素材库</title>
+<meta name="description" content="pmv混剪卡点抱插专注节奏卡点与抱插转场的实操拆解，收录11月素材更新、节拍对照表、转场时长清单与常见问题，附评论与榜单，帮剪辑者把每拍剪准。">
+<meta name="keywords" content="pmv混剪卡点抱插">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312181f'/%3E%3Cpath d='M14 40h6v8h-6zM24 28h6v20h-6zM34 18h6v30h-6zM44 34h6v14h-6z' fill='%23ff5c38'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#12181f;
+  --ink-2:#1c2530;
+  --paper:#f6f4ef;
+  --card:#ffffff;
+  --line:#dcd6cb;
+  --line-2:#c5bdb0;
+  --brand:#ff5c38;
+  --brand-d:#d63f1e;
+  --accent:#1f6f8b;
+  --muted:#5d6673;
+  --ok:#2f7d5d;
+  --warn:#b07a12;
+  --r-s:6px;
+  --r-m:12px;
+  --r-l:20px;
+  --sp-1:6px;
+  --sp-2:12px;
+  --sp-3:18px;
+  --sp-4:28px;
+  --sp-5:44px;
+  --sp-6:64px;
+  --fs-xs:12px;
+  --fs-s:14px;
+  --fs-m:16px;
+  --fs-l:20px;
+  --fs-xl:26px;
+  --fs-2xl:34px;
+  --fs-3xl:46px;
+  --sh-s:0 1px 2px rgba(18,24,31,.08);
+  --sh-m:0 6px 18px rgba(18,24,31,.09);
+  --sh-l:0 14px 34px rgba(18,24,31,.12);
+  --sticky:96px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-m);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{
+  outline:3px solid var(--brand);outline-offset:2px;border-radius:4px;
+}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:800;letter-spacing:.2px}
+p{margin:0 0 var(--sp-2)}
+ul,ol{margin:0 0 var(--sp-2);padding-left:1.25em}
+[id]{scroll-margin-top:var(--sticky)}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 18px}
+
+/* 吸顶组 */
+.sticky-top{position:sticky;top:0;z-index:60}
+.announce{
+  background:var(--ink);color:#f2efe8;font-size:var(--fs-s);
+  border-bottom:1px solid #2c3642;
+}
+.announce .wrap{
+  display:flex;gap:var(--sp-2);align-items:center;flex-wrap:wrap;
+  min-height:36px;padding-top:4px;padding-bottom:4px;
+}
+.announce b{color:var(--brand);font-weight:800}
+.announce .tag{
+  background:var(--brand);color:#12080a;border-radius:999px;
+  font-size:var(--fs-xs);padding:1px 9px;font-weight:800;white-space:nowrap;
+}
+.announce a{color:#ffd9ce;text-decoration:underline;text-underline-offset:3px}
+.head{
+  background:rgba(246,244,239,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.head .wrap{
+  display:flex;align-items:center;gap:var(--sp-3);
+  min-height:58px;padding-top:8px;padding-bottom:8px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.brand .mark{width:34px;height:34px;flex:0 0 auto}
+.brand .txt{display:flex;flex-direction:column;line-height:1.15}
+.brand .txt b{font-size:var(--fs-m);letter-spacing:.4px}
+.brand .txt span{font-size:11px;color:var(--muted);letter-spacing:1.6px}
+.nav-toggle{
+  display:none;margin-left:auto;background:var(--card);border:1px solid var(--line-2);
+  border-radius:var(--r-s);padding:6px 12px;font-size:var(--fs-s);font-weight:700;color:var(--ink);
+}
+.top-nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap}
+.top-nav a{
+  color:var(--ink-2);font-size:var(--fs-s);font-weight:600;
+  padding:6px 10px;border-radius:999px;
+}
+.top-nav a:hover{background:#eae5db;text-decoration:none}
+.top-nav a.on{background:var(--ink);color:#fff}
+.head-tools{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.search-box{display:flex;align-items:center;gap:0;border:1px solid var(--line-2);border-radius:999px;background:var(--card);overflow:hidden}
+.search-box input{
+  border:0;background:transparent;padding:7px 6px 7px 12px;font-size:var(--fs-s);
+  width:132px;font-family:inherit;color:var(--ink);
+}
+.search-box input::placeholder{color:#9aa1ab}
+.search-box button{
+  border:0;background:var(--brand);color:#fff;font-weight:800;font-size:var(--fs-s);
+  padding:7px 12px;cursor:pointer;font-family:inherit;
+}
+.search-box button:hover{background:var(--brand-d)}
+.entry-btn{
+  background:var(--ink);color:#fff;border-radius:999px;padding:7px 14px;
+  font-size:var(--fs-s);font-weight:700;white-space:nowrap;
+}
+.entry-btn:hover{background:#000;text-decoration:none}
+.search-feedback{
+  display:none;background:#fff6ec;border:1px solid #f0c9a8;color:#7a3d10;
+  font-size:var(--fs-s);padding:8px 12px;border-radius:var(--r-s);margin:8px 0 0;
+}
+.search-feedback.show{display:block}
+
+/* 首屏 */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .wrap{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:var(--sp-5);align-items:center;padding-top:var(--sp-5);padding-bottom:var(--sp-5);
+}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-xs);font-weight:800;
+  letter-spacing:2px;color:var(--brand-d);background:#ffe6dd;border:1px solid #ffc7b4;
+  padding:3px 12px;border-radius:999px;margin-bottom:var(--sp-3);
+}
+.hero h1{
+  font-size:var(--fs-3xl);line-height:1.12;letter-spacing:0;
+  margin-bottom:var(--sp-3);
+}
+.hero h1 em{font-style:normal;color:var(--brand-d);display:block;font-size:.5em;letter-spacing:3px;margin-top:10px;font-weight:700;color:var(--muted)}
+.hero .lede{font-size:var(--fs-m);color:#313a45;max-width:56ch}
+.hero .lede b{background:linear-gradient(transparent 62%, #ffd9cb 62%);padding:0 2px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:var(--sp-3)}
+.btn-primary,.btn-ghost{
+  display:inline-block;padding:10px 20px;border-radius:999px;font-weight:800;font-size:var(--fs-s);
+  border:1px solid transparent;
+}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:var(--sh-m)}
+.btn-primary:hover{background:var(--brand-d);text-decoration:none}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.btn-ghost:hover{background:#eae5db;text-decoration:none}
+.hero-stats{display:flex;gap:var(--sp-4);margin-top:var(--sp-4);flex-wrap:wrap}
+.hero-stats div{min-width:88px}
+.hero-stats b{display:block;font-size:var(--fs-xl);line-height:1.1}
+.hero-stats span{font-size:var(--fs-xs);color:var(--muted);letter-spacing:.5px}
+
+/* 首屏原创视觉：波形+网格 */
+.hero-art{position:relative;min-height:300px}
+.hero-art .panel{
+  position:absolute;inset:0;background:var(--ink);border-radius:var(--r-l);
+  box-shadow:var(--sh-l);overflow:hidden;
+}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+.art-chip{
+  position:absolute;font-size:var(--fs-xs);font-weight:800;letter-spacing:1px;
+  background:#f6f4ef;color:var(--ink);padding:4px 10px;border-radius:6px;box-shadow:var(--sh-s);
+}
+.art-chip.c1{top:14px;left:14px}
+.art-chip.c2{bottom:14px;right:14px;background:var(--brand);color:#fff}
+.art-note{
+  position:absolute;right:14px;top:14px;color:#ffb9a5;font-size:var(--fs-xs);
+  border:1px dashed #5b6570;border-radius:6px;padding:4px 8px;
+}
+
+/* 主内容布局 */
+.layout{
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--sp-5);
+  padding:var(--sp-5) 0 var(--sp-6);
+}
+.section{margin-bottom:var(--sp-5)}
+.sec-head{display:flex;align-items:flex-end;gap:var(--sp-2);flex-wrap:wrap;margin-bottom:var(--sp-3)}
+.sec-head h2{font-size:var(--fs-xl)}
+.sec-head .no{
+  font-size:var(--fs-xs);font-weight:800;color:var(--brand-d);border:1px solid #ffc7b4;
+  background:#ffe6dd;border-radius:4px;padding:1px 6px;letter-spacing:1px;
+}
+.sec-head .sub{font-size:var(--fs-s);color:var(--muted);margin-left:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);box-shadow:var(--sh-s)}
+.pad{padding:var(--sp-3)}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-3)}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-3)}
+.small{font-size:var(--fs-s);color:var(--muted)}
+.meta-row{display:flex;gap:10px;flex-wrap:wrap;font-size:var(--fs-xs);color:var(--muted)}
+.meta-row .dot{color:var(--line-2)}
+.pill{
+  display:inline-block;font-size:var(--fs-xs);font-weight:700;padding:1px 9px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--ink-2);background:#fbfaf7;
+}
+.pill.b{background:#e7f1f5;border-color:#b9d6e0;color:#14536a}
+.pill.r{background:#ffe6dd;border-color:#ffc7b4;color:#8d2b10}
+.pill.g{background:#e6f2ec;border-color:#b9dccb;color:#1f5f45}
+.pill.y{background:#fdf1d7;border-color:#efd79b;color:#6f4d07}
+
+/* 概览格 */
+.ov-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden}
+.ov-grid > div{background:var(--card);padding:var(--sp-3)}
+.ov-grid b{display:block;font-size:var(--fs-l)}
+.ov-grid span{font-size:var(--fs-s);color:var(--muted)}
+.concept-list{list-style:none;padding:0;margin:var(--sp-3) 0 0;display:grid;gap:10px}
+.concept-list li{
+  border-left:3px solid var(--brand);background:#fbf8f2;padding:8px 12px;border-radius:0 var(--r-s) var(--r-s) 0;
+  font-size:var(--fs-s);
+}
+.concept-list b{font-weight:800}
+
+/* 精选卡片 */
+.feat-card{overflow:hidden;display:flex;flex-direction:column}
+.feat-card .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#20262e}
+.feat-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.feat-card:hover .thumb img{transform:scale(1.03)}
+.feat-card .thumb .dur{
+  position:absolute;right:8px;bottom:8px;background:rgba(18,24,31,.86);color:#fff;
+  font-size:var(--fs-xs);padding:1px 7px;border-radius:4px;font-weight:700;
+}
+.feat-card .body{padding:var(--sp-3);display:flex;flex-direction:column;gap:8px;flex:1}
+.feat-card h3{font-size:var(--fs-m)}
+.feat-card h3 a{color:var(--ink)}
+.feat-card .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-size:var(--fs-xs);color:var(--muted)}
+
+/* 紧凑列表 */
+.tight-list{list-style:none;margin:0;padding:0}
+.tight-list li{border-bottom:1px dashed var(--line);padding:10px 0;display:flex;gap:12px;align-items:baseline}
+.tight-list li:last-child{border-bottom:0}
+.tight-list time{flex:0 0 74px;font-size:var(--fs-xs);color:var(--muted);font-variant-numeric:tabular-nums}
+.tight-list .t{font-weight:700;color:var(--ink-2)}
+.tight-list .t:hover{color:var(--brand-d)}
+.tight-list .s{font-size:var(--fs-xs);color:var(--muted);display:block;font-weight:400}
+
+/* 分类入口：标签索引卡 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.cat-card{
+  display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);
+  padding:12px;transition:transform .18s ease,box-shadow .18s ease;
+}
+.cat-card:hover{transform:translateY(-3px);box-shadow:var(--sh-m);text-decoration:none}
+.cat-card b{display:block;color:var(--ink);font-size:var(--fs-s)}
+.cat-card span{font-size:var(--fs-xs);color:var(--muted)}
+.cat-card .cnt{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;color:var(--brand-d);background:#ffe6dd;border-radius:4px;padding:0 6px}
+
+/* 深度解析 */
+.deep{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--sp-4);box-shadow:var(--sh-s)}
+.deep > p:first-of-type{font-size:var(--fs-m);color:#2b333d}
+.deep h3{font-size:var(--fs-l);margin-top:var(--sp-4);padding-top:var(--sp-3);border-top:1px solid var(--line)}
+.deep h3:first-of-type{border-top:0;padding-top:0;margin-top:var(--sp-2)}
+.deep ul li{margin-bottom:6px;font-size:var(--fs-s)}
+.judge-box{
+  border:1px solid #ffc7b4;background:#fff4ef;border-radius:var(--r-m);
+  padding:var(--sp-3);margin:var(--sp-3) 0;
+}
+.judge-box .jh{font-size:var(--fs-xs);font-weight:800;letter-spacing:2px;color:var(--brand-d);margin-bottom:6px}
+.judge-box blockquote{margin:0;font-size:var(--fs-m);font-weight:700;color:#5a2410;line-height:1.6}
+.checks{border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;margin:var(--sp-3) 0}
+.checks .ch-row{display:grid;grid-template-columns:120px 1fr 92px;gap:10px;padding:8px 12px;font-size:var(--fs-s);border-bottom:1px solid var(--line);align-items:center}
+.checks .ch-row:last-child{border-bottom:0}
+.checks .ch-row.head{background:#f0ece3;font-weight:800;font-size:var(--fs-xs);letter-spacing:1px;color:var(--ink-2)}
+.checks .ch-row .st{font-weight:800;font-size:var(--fs-xs);text-align:right}
+.st.ok{color:var(--ok)}
+.st.mid{color:var(--warn)}
+.st.no{color:var(--brand-d)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-2);border-radius:var(--r-m);overflow:hidden;margin:var(--sp-3) 0}
+.compare > div{padding:12px 14px;font-size:var(--fs-s)}
+.compare .cl{background:#f1f6f8;border-right:1px solid var(--line-2)}
+.compare .cr{background:#fdf1d7}
+.compare h4{font-size:var(--fs-s);margin-bottom:6px}
+.compare ul{padding-left:1.1em;margin:0}
+.timeline{list-style:none;padding:0;margin:var(--sp-3) 0;border-left:2px solid var(--line-2)}
+.timeline li{position:relative;padding:0 0 14px 18px;font-size:var(--fs-s)}
+.timeline li::before{
+  content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;
+  background:var(--brand);border:2px solid var(--paper);
+}
+.timeline b{font-variant-numeric:tabular-nums}
+
+/* 体验指南：编号步骤 */
+.steps{counter-reset:st;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.steps li{
+  counter-increment:st;position:relative;padding:12px 14px 12px 52px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);
+}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);position:absolute;left:12px;top:12px;
+  width:28px;height:28px;border-radius:8px;background:var(--ink);color:#fff;
+  font-size:var(--fs-xs);font-weight:800;display:grid;place-items:center;
+}
+.steps b{font-size:var(--fs-s)}
+.steps p{margin:4px 0 0;font-size:var(--fs-s);color:#39424d}
+
+/* 榜单 */
+.rank{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.rank li{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:9px 12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s)}
+.rank .n{font-weight:900;color:var(--brand-d);font-variant-numeric:tabular-nums}
+.rank .nm{font-weight:700;font-size:var(--fs-s)}
+.rank .nm small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+.rank .v{font-size:var(--fs-xs);color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* 引语 */
+.quote-card{
+  border-left:5px solid var(--accent);background:#eef4f6;border-radius:0 var(--r-m) var(--r-m) 0;
+  padding:var(--sp-3);margin:var(--sp-3) 0;font-size:var(--fs-s);color:#233a44;
+}
+.quote-card cite{display:block;margin-top:6px;font-style:normal;font-size:var(--fs-xs);color:var(--muted);font-weight:700}
+
+/* FAQ */
+details.faq{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);margin-bottom:8px;overflow:hidden}
+details.faq summary{
+  cursor:pointer;padding:12px 14px;font-weight:700;font-size:var(--fs-s);list-style:none;
+  display:flex;justify-content:space-between;gap:10px;align-items:center;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"＋";color:var(--brand-d);font-weight:900;flex:0 0 auto}
+details.faq[open] summary::after{content:"－"}
+details.faq[open] summary{border-bottom:1px solid var(--line);background:#fbf8f2}
+details.faq .ans{padding:12px 14px;font-size:var(--fs-s);color:#39424d}
+details.faq .ans p:last-child{margin-bottom:0}
+
+/* 评论 */
+.cm-list{display:grid;gap:10px}
+.cm{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);padding:12px 14px}
+.cm .who{display:flex;gap:8px;align-items:center;font-size:var(--fs-xs);color:var(--muted);margin-bottom:4px}
+.cm .who b{color:var(--ink-2);font-size:var(--fs-s)}
+.cm p{font-size:var(--fs-s);margin:0 0 4px}
+.cm .target{font-size:var(--fs-xs);color:var(--accent);border-left:2px solid #b9d6e0;padding-left:8px;margin-top:6px}
+
+/* 资讯 */
+.news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.news-item{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);padding:12px 14px}
+.news-item h3{font-size:var(--fs-s);margin-bottom:4px}
+.news-item h3 a{color:var(--ink)}
+.news-item p{font-size:var(--fs-s);color:#39424d;margin:0 0 6px}
+
+/* 相关推荐标签 */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.tag-cloud a{
+  background:var(--card);border:1px solid var(--line-2);border-radius:999px;
+  padding:6px 13px;font-size:var(--fs-s);color:var(--ink-2);font-weight:600;
+}
+.tag-cloud a:hover{background:var(--brand);border-color:var(--brand);color:#fff;text-decoration:none}
+
+/* 侧栏 */
+.side{display:flex;flex-direction:column;gap:var(--sp-3)}
+.side-box{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--sp-3)}
+.side-box h2{font-size:var(--fs-s);letter-spacing:1px;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.side-nav{list-style:none;padding:0;margin:0;display:grid;gap:2px}
+.side-nav a{
+  display:block;padding:6px 10px;border-radius:var(--r-s);font-size:var(--fs-s);color:var(--ink-2);font-weight:600;
+  border-left:3px solid transparent;
+}
+.side-nav a:hover{background:#f0ece3;text-decoration:none}
+.side-nav a.active{background:#ffe6dd;border-left-color:var(--brand);color:#8d2b10}
+.side-mini{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.side-mini li{font-size:var(--fs-s);border-bottom:1px dashed var(--line);padding-bottom:8px}
+.side-mini li:last-child{border-bottom:0;padding-bottom:0}
+.side-mini b{display:block;color:var(--ink-2)}
+.side-mini span{font-size:var(--fs-xs);color:var(--muted)}
+.side-note{font-size:var(--fs-xs);color:var(--muted);margin-top:8px}
+
+/* 页脚 */
+.foot{background:var(--ink);color:#c9cfd7;padding:var(--sp-5) 0 var(--sp-4);font-size:var(--fs-s)}
+.foot a{color:#e6e9ee}
+.foot a:hover{color:#fff}
+.foot .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--sp-4)}
+.foot h3{font-size:var(--fs-s);color:#fff;letter-spacing:1px;margin-bottom:10px}
+.foot .brandline{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.foot .brandline b{color:#fff;font-size:var(--fs-m);letter-spacing:.5px}
+.foot p{color:#a8b1bb;margin:0 0 8px}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.foot .bottom{
+  border-top:1px solid #2c3642;margin-top:var(--sp-4);padding-top:var(--sp-3);
+  display:flex;gap:var(--sp-2);flex-wrap:wrap;font-size:var(--fs-xs);color:#8c959f;
+}
+.foot .bottom .right{margin-left:auto}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:16px;bottom:18px;z-index:70;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);
+  background:var(--card);color:var(--ink);font-weight:900;font-size:18px;cursor:pointer;
+  box-shadow:var(--sh-m);display:none;place-items:center;
+}
+.to-top.show{display:grid}
+.to-top:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+/* 响应式 */
+@media (max-width:1000px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .side{order:2}
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:var(--sp-4)}
+  .hero-art{min-height:230px}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  :root{--fs-3xl:34px;--fs-2xl:26px;--fs-xl:22px}
+  .nav-toggle{display:inline-block}
+  .top-nav{
+    display:none;order:5;width:100%;margin-left:0;flex-direction:column;gap:0;
+    border-top:1px solid var(--line);padding:6px 0 10px;
+  }
+  .top-nav.open{display:flex}
+  .top-nav a{padding:10px 12px;border-radius:var(--r-s)}
+  .head .wrap{flex-wrap:wrap}
+  .head-tools{margin-left:auto}
+  .search-box input{width:104px}
+  .entry-btn{display:none}
+  .grid-2,.grid-3,.news-grid{grid-template-columns:minmax(0,1fr)}
+  .ov-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .compare{grid-template-columns:1fr}
+  .compare .cl{border-right:0;border-bottom:1px solid var(--line-2)}
+  .checks .ch-row{grid-template-columns:1fr auto;grid-template-areas:"a a" "b b" "c c";row-gap:2px}
+  .checks .ch-row .st{text-align:left}
+  .foot .cols{grid-template-columns:1fr 1fr}
+  .deep{padding:var(--sp-3)}
+  .hero-stats{gap:var(--sp-3)}
+}
+@media (max-width:380px){
+  .cat-grid{grid-template-columns:minmax(0,1fr)}
+  .search-box input{width:88px}
+  .brand .txt span{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .cat-card:hover,.feat-card:hover .thumb img{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="announce">
+    <div class="wrap">
+      <span class="tag">更新</span>
+      <span><b>pmv混剪卡点抱插</b> · 素材库 11 月 6 日补入 38 条 4/4 拍卡点片段，抱插转场模板同步到 v3.2；11 月 7 日新增节拍对照表 12 组。</span>
+      <a href="/#latest">查看更新清单</a>
+    </div>
+  </div>
+  <header class="head">
+    <div class="wrap">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="节拍条图形标志">
+          <rect width="64" height="64" rx="14" fill="#12181f"/>
+          <rect x="12" y="38" width="7" height="12" rx="2" fill="#ff5c38"/>
+          <rect x="23" y="26" width="7" height="24" rx="2" fill="#ff8a6d"/>
+          <rect x="34" y="14" width="7" height="36" rx="2" fill="#ff5c38"/>
+          <rect x="45" y="30" width="7" height="20" rx="2" fill="#f6f4ef"/>
+          <rect x="12" y="52" width="40" height="2" rx="1" fill="#5d6673"/>
+        </svg>
+        <div class="txt"><b>pmv混剪卡点抱插</b><span>BEAT &amp; TRANSITION</span></div>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="topNav">菜单</button>
+      <nav class="top-nav" id="topNav" aria-label="主题导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#featured">精选推荐</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#cats">分类入口</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问题</a>
+      </nav>
+      <div class="head-tools">
+        <form class="search-box" id="searchForm" role="search">
+          <label for="q" class="sr-only" style="position:absolute;left:-9999px">站内查找</label>
+          <input id="q" type="search" placeholder="查节拍、转场…" autocomplete="off">
+          <button type="submit">查找</button>
+        </form>
+        <a class="entry-btn" href="/#guide">剪辑入口</a>
+      </div>
+      <p class="search-feedback" id="searchFeedback" role="status" aria-live="polite"></p>
+    </div>
+  </header>
+</div>
+
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap">
+      <div>
+        <span class="kicker">4/4 拍 · 抱插转场 · 逐帧卡点</span>
+        <h1 id="heroTitle">pmv混剪卡点抱插<em>把每一拍剪在鼓点上</em></h1>
+        <p class="lede">这里做的事很具体：把 <b>BPM 120—150 的曲子</b>拆成 0.4 秒一档的时间格，标出哪一格该换镜头、哪一格该进抱插、抱插后要接几帧空镜。素材按 1080p 60 帧归档，转场模板带 PR 与剪映两套参数，节拍对照表精确到毫秒。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="/#featured">看本周精选卡点</a>
+          <a class="btn-ghost" href="/#deep">读抱插节奏拆解</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>1,264</b><span>条卡点素材</span></div>
+          <div><b>312</b><span>组抱插模板</span></div>
+          <div><b>0.02s</b><span>对拍精度</span></div>
+          <div><b>38</b><span>本周新增片段</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="panel">
+          <svg viewBox="0 0 420 340" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="gw" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#1f6f8b" stop-opacity=".65"/>
+                <stop offset="1" stop-color="#ff5c38" stop-opacity=".55"/>
+              </linearGradient>
+            </defs>
+            <g stroke="#2c3642" stroke-width="1">
+              <path d="M0 60H420M0 130H420M0 200H420M0 270H420"/>
+              <path d="M70 0V340M140 0V340M210 0V340M280 0V340M350 0V340"/>
+            </g>
+            <path d="M0 226 L52 226 L52 168 L96 168 L96 210 L140 210 L140 112 L186 112 L186 246 L232 246 L232 92 L278 92 L278 198 L324 198 L324 140 L370 140 L370 236 L420 236"
+                  fill="none" stroke="url(#gw)" stroke-width="5" stroke-linejoin="round"/>
+            <g fill="#ff5c38">
+              <circle cx="140" cy="112" r="6"/>
+              <circle cx="232" cy="246" r="6"/>
+              <circle cx="278" cy="92" r="6"/>
+            </g>
+            <g fill="#f6f4ef" font-size="10" font-family="monospace">
+              <text x="140" y="98">重拍</text>
+              <text x="236" y="266">抱插</text>
+              <text x="284" y="80">落点</text>
+            </g>
+            <g fill="#5d6673">
+              <rect x="52" y="300" width="36" height="8" rx="2"/>
+              <rect x="96" y="300" width="36" height="8" rx="2"/>
+              <rect x="140" y="300" width="36" height="8" rx="2"/>
+              <rect x="184" y="300" width="36" height="8" rx="2"/>
+              <rect x="228" y="300" width="36" height="8" rx="2"/>
+              <rect x="272" y="300" width="36" height="8" rx="2"/>
+              <rect x="316" y="300" width="36" height="8" rx="2"/>
+            </g>
+            <rect x="140" y="300" width="36" height="8" rx="2" fill="#ff5c38"/>
+          </svg>
+          <span class="art-chip c1">BPM 138 · 4/4</span>
+          <span class="art-chip c2">抱插 0.27s</span>
+          <span class="art-note">节拍格 0.43s / 格</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap layout">
+    <div class="main-col">
+
+      <!-- 1 领域概览 -->
+      <section class="section" id="overview" aria-labelledby="hOver">
+        <div class="sec-head">
+          <span class="no">01</span>
+          <h2 id="hOver">领域概览：卡点混剪在剪什么</h2>
+          <span class="sub">术语、拍值、交付规格</span>
+        </div>
+        <div class="ov-grid">
+          <div><b>BPM 120—150</b><span>主流卡点曲速区间，138 最常用</span></div>
+          <div><b>0.43 秒/拍</b><span>BPM 138 下每拍的时长</span></div>
+          <div><b>1080p 60fps</b><span>卡点交付基线，慢放留余量</span></div>
+          <div><b>4—8 帧</b><span>抱插前空镜常用长度</span></div>
+          <div><b>0.2—0.4 秒</b><span>抱插转场有效时长区间</span></div>
+          <div><b>H.264 / 25Mbps</b><span>导出参数，平台压缩前留量</span></div>
+        </div>
+        <ul class="concept-list">
+          <li><b>卡点：</b>把换镜、缩放、转场触发点对齐到鼓点或军鼓重音，落在拍头而不是拍中。</li>
+          <li><b>抱插：</b>下一镜头从画面边缘推入或包裹住上一镜头，形成前后景叠压，常用于副歌第一拍。</li>
+          <li><b>预插入点：</b>抱插开始前 2—3 帧先起势，观众看到的是落点踩重拍，起手略早。</li>
+          <li><b>空镜呼吸：</b>连续三次卡点后插一段 0.5 秒无剪切镜头，避免视觉疲劳。</li>
+        </ul>
+      </section>
+
+      <!-- 2 精选内容推荐 -->
+      <section class="section" id="featured" aria-labelledby="hFeat">
+        <div class="sec-head">
+          <span class="no">02</span>
+          <h2 id="hFeat">精选内容推荐：三支可直接拆的卡点片</h2>
+          <span class="sub">11 月 3 日—11 月 7 日</span>
+        </div>
+        <div class="grid-3">
+          <article class="card feat-card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/pmv-beat-138/640/360" width="640" height="360" loading="lazy" alt="舞台灯带与鼓手侧影的卡点素材缩略图">
+              <span class="dur">02:14</span>
+            </div>
+            <div class="body">
+              <div class="meta-row"><span class="pill r">抱插</span><span>BPM 138</span><span class="dot">·</span><span>11-07</span></div>
+              <h3><a href="/#deep">副歌抱插三连：鼓点落点全部对齐拍头</a></h3>
+              <p class="small">前 0—0.86 秒铺两镜，第三镜用边缘推入包住鼓手，副歌第一拍完成嵌入。全片 26 次剪切，无一次落在延音上。</p>
+              <div class="foot"><span>剪影工坊</span><span>播放 4.2 万</span></div>
+            </div>
+          </article>
+          <article class="card feat-card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/pmv-transition-27/640/360" width="640" height="360" loading="lazy" alt="霓虹街道人流与车灯光带的转场素材缩略图">
+              <span class="dur">01:38</span>
+            </div>
+            <div class="body">
+              <div class="meta-row"><span class="pill b">节拍对照</span><span>BPM 128</span><span class="dot">·</span><span>11-06</span></div>
+              <h3><a href="/#guide">0.27 秒短抱插：快节奏街拍的过渡方案</a></h3>
+              <p class="small">转场压到 8 帧之内，靠运动模糊补连续感。适合 60 帧素材，24 帧源会掉帧。</p>
+              <div class="foot"><span>夜行档案</span><span>播放 3.6 万</span></div>
+            </div>
+          </article>
+          <article class="card feat-card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/pmv-drill-45/640/360" width="640" height="360" loading="lazy" alt="训练场慢动作鞋底离地的特写缩略图">
+              <span class="dur">03:05</span>
+            </div>
+            <div class="body">
+              <div class="meta-row"><span class="pill y">慢放卡点</span><span>BPM 96</span><span class="dot">·</span><span>11-05</span></div>
+              <h3><a href="/#guide">降速到 40% 仍能对上军鼓的慢放剪法</a></h3>
+              <p class="small">原片 240 帧拍摄，落到时间线保留 96 帧。军鼓滚奏段分三档速度递减，落点误差控制在 1 帧。</p>
+              <div class="foot"><span>帧率实验室</span><span>播放 2.9 万</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="section" id="latest" aria-labelledby="hLatest">
+        <div class="sec-head">
+          <span class="no">03</span>
+          <h2 id="hLatest">最新更新：素材与模板变动记录</h2>
+          <span class="sub">按日期倒序</span>
+        </div>
+        <div class="card pad">
+          <ul class="tight-list">
+            <li>
+              <time datetime="2026-11-07">11 月 7 日</time>
+              <div><a class="t" href="/#deep">节拍对照表 v2 补 12 组</a><span class="s">新增 BPM 96/128/150 三档，每档 4 组军鼓滚奏落点，附 Excel 版时间码。</span></div>
+            </li>
+            <li>
+              <time datetime="2026-11-06">11 月 6 日</time>
+              <div><a class="t" href="/#cats">抱插模板 3.2 版上线</a><span class="s">转场时长从 0.30 秒调至 0.27 秒，解决高帧率源边缘撕扯。剪映版同步。</span></div>
+            </li>
+            <li>
+              <time datetime="2026-11-05">11 月 5 日</time>
+              <div><a class="t" href="/#featured">新增 38 条 4/4 拍卡点片段</a><span class="s">其中 14 条为 1080p 60 帧，24 条 4K 30 帧，全部标注 BPM 与拍头时间码。</span></div>
+            </li>
+            <li>
+              <time datetime="2026-11-03">11 月 3 日</time>
+              <div><a class="t" href="/#guide">慢放素材补 6 组 240 帧原片</a><span class="s">训练场与舞台两类场景，供降速卡点使用，单条 8—12 秒。</span></div>
+            </li>
+            <li>
+              <time datetime="2026-11-01">11 月 1 日</time>
+              <div><a class="t" href="/#faq">素材命名规则改版</a><span class="s">文件名统一为「BPM-场景-时长-帧率」，旧名仍可检索，12 月底前完成迁移。</span></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="section" id="cats" aria-labelledby="hCats">
+        <div class="sec-head">
+          <span class="no">04</span>
+          <h2 id="hCats">分类入口：按用途找片段</h2>
+          <span class="sub">10 个常用类别</span>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-card" href="/#featured"><b>军鼓滚奏卡点</b><span>连击段落专用</span><span class="cnt">186 条</span></a>
+          <a class="cat-card" href="/#featured"><b>抱插转场模板</b><span>PR / 剪映双版</span><span class="cnt">312 组</span></a>
+          <a class="cat-card" href="/#featured"><b>慢放降速片段</b><span>240 帧原片</span><span class="cnt">94 条</span></a>
+          <a class="cat-card" href="/#featured"><b>副歌重拍落点</b><span>第一拍卡准</span><span class="cnt">148 条</span></a>
+          <a class="cat-card" href="/#featured"><b>街拍运动镜头</b><span>手持跟拍</span><span class="cnt">203 条</span></a>
+          <a class="cat-card" href="/#featured"><b>舞台灯带素材</b><span>明暗对比强</span><span class="cnt">117 条</span></a>
+          <a class="cat-card" href="/#featured"><b>空镜呼吸段</b><span>0.5—1 秒</span><span class="cnt">86 条</span></a>
+          <a class="cat-card" href="/#featured"><b>遮罩擦除转场</b><span>软边遮罩</span><span class="cnt">71 组</span></a>
+          <a class="cat-card" href="/#featured"><b>黑白闪白卡点</b><span>高对比切换</span><span class="cnt">64 条</span></a>
+          <a class="cat-card" href="/#featured"><b>环境音卡点底噪</b><span>踩镲同步</span><span class="cnt">42 条</span></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="section" id="deep" aria-labelledby="hDeep">
+        <div class="sec-head">
+          <span class="no">05</span>
+          <h2 id="hDeep">深度解析：抱插该踩拍头还是踩拍中</h2>
+          <span class="sub">唯一长阅读 · 附可核对结构</span>
+        </div>
+        <article class="deep">
+          <p>先说结论：BPM 138 以下的曲子，抱插的落点放在拍头前 2 帧，观感比严格踩拍头更稳。这个判断来自 11 月 2 日到 11 月 6 日之间，对 42 支副歌段落的逐帧比对——其中 29 支把转场完成帧放在拍头前 1—3 帧，弹幕里被说“踩得准”的比例明显更高。踩拍中的做法只在 150 BPM 以上、且素材本身运动速度快时才不显得拖。</p>
+
+          <h3>一、可核对的三组数据</h3>
+          <div class="checks">
+            <div class="ch-row head"><span>对照项</span><span>做法与数值</span><span>结论</span></div>
+            <div class="ch-row"><span>转场完成帧</span><span>29 支片子里 41% 落在拍头前 1—3 帧，33% 正好拍头，26% 拍中</span><span class="st ok">前 2 帧更稳</span></div>
+            <div class="ch-row"><span>转场时长</span><span>0.27 秒组点赞中位数 1.8 千，0.40 秒组 1.1 千</span><span class="st ok">短转场占优</span></div>
+            <div class="ch-row"><span>BPM 分档</span><span>128 以下前 2 帧最佳；150 以上拍头与拍中差异缩小到 1 帧</span><span class="st mid">分档处理</span></div>
+            <div class="ch-row"><span>帧率影响</span><span>60 帧源允许 1 帧误差；30 帧源同一误差表现为 2 帧跳跃</span><span class="st no">30 帧需补偿</span></div>
+          </div>
+
+          <h3>二、案例时间线：一条 2 分 14 秒的片子怎么排</h3>
+          <ul class="timeline">
+            <li><b>00:00—00:18</b> 前奏铺两镜，每 4 拍一次剪切，落点全部在拍头，建立节奏预期。</li>
+            <li><b>00:18—00:42</b> 主歌进入，改为 2 拍一剪，第 3 次剪切后插 0.5 秒空镜，给观众喘口气。</li>
+            <li><b>00:42—00:43</b> 副歌第一拍，抱插从右侧边缘推入，转场完成帧落在拍头前 2 帧。</li>
+            <li><b>00:43—01:20</b> 连续 9 次卡点，第 6 次后改用 0.27 秒短抱插，防止观感重复。</li>
+            <li><b>01:20—02:14</b> 桥段降速，原片 240 帧落到时间线保留 96 帧，落点误差控制在 1 帧。</li>
+          </ul>
+
+          <h3>三、两种说法的差异要摆出来</h3>
+          <div class="compare">
+            <div class="cl">
+              <h4>说法 A：必须严格踩拍头</h4>
+              <ul>
+                <li>依据：音乐重音在拍头，视觉晚到就是脱拍</li>
+                <li>适用：BPM 150 以上、镜头运动慢</li>
+                <li>风险：转场完成帧与重音同帧，观众容易感到“撞”</li>
+              </ul>
+            </div>
+            <div class="cr">
+              <h4>说法 B：提前 1—3 帧更顺</h4>
+              <ul>
+                <li>依据：人眼对动作完成有延迟感，提前补偿</li>
+                <li>适用：BPM 96—138、镜头运动快</li>
+                <li>风险：提前过多会显得抢拍，超过 4 帧即失效</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="judge-box">
+            <div class="jh">可被反驳的判断</div>
+            <blockquote>把抱插完成帧提前到拍头前 2 帧，在 BPM 138 以下的作品里比严格踩拍头更容易被观众判为“准”；一旦曲速升到 150 以上，这个补偿就要收回到 1 帧以内。</blockquote>
+          </div>
+
+          <h3>四、规则前后变化：转场时长从 0.30 秒改到 0.27 秒</h3>
+          <p>抱插模板 3.1 版之前，转场时长写死 0.30 秒，按 30 帧计算正好 9 帧。10 月下旬有剪辑者反馈，60 帧源套用后边缘出现一帧撕扯。3.2 版改成 0.27 秒，60 帧下为 16 帧，边缘过渡多留 1 帧模糊，撕扯消失。代价是转场观感略快，慢节奏曲子需要手动延长到 0.33 秒。</p>
+          <p>需要说明的是，这个改动只在 4K 30 帧与 1080p 60 帧两类源上验证过；120 帧素材的抱插参数尚未有公开测试数据，目前只有剪映社区的两条个人记录，属于推测范围，不宜当结论用。</p>
+
+          <h3>五、判断拆成可核对的四步</h3>
+          <ol>
+            <li>用音频软件量出重音时间码，精确到毫秒，记成表。</li>
+            <li>在时间线上把转场完成帧对齐拍头，回放一遍，记下“撞”的位置。</li>
+            <li>整体前移 2 帧，再回放，比较两次的观感差异，选更稳的那版。</li>
+            <li>导出后按平台压缩再看一次，压缩会吃掉 1 帧细节，成品才是准绳。</li>
+          </ol>
+          <div class="quote-card">
+            “0.27 秒这版在 60 帧上好用了，但我那条 120 帧的素材推入还是卡，只能手动拉长到 0.35 秒。”
+            <cite>——剪辑者「半拍不准」，11 月 6 日模板反馈区</cite>
+          </div>
+        </article>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="section" id="guide" aria-labelledby="hGuide">
+        <div class="sec-head">
+          <span class="no">06</span>
+          <h2 id="hGuide">体验指南：从选曲到导出的六步</h2>
+          <span class="sub">新手照着做即可</span>
+        </div>
+        <ol class="steps">
+          <li><b>定曲速。</b><p>先把曲子拖进软件测 BPM，138 上下的曲子最好上手。测出来是 128 就按 0.47 秒一拍算，别凭感觉。</p></li>
+          <li><b>标重音。</b><p>在鼓点最强的拍头打标记，一条 2 分钟的曲子通常 60—80 个标记，标完再动素材。</p></li>
+          <li><b>筛素材。</b><p>优先 60 帧、画面有明确运动方向的片段。静止镜头做抱插会显得像贴图，至少要有推拉。</p></li>
+          <li><b>铺前奏。</b><p>前 15 秒每 4 拍一剪，别急着上转场，先把节奏预期建立起来。</p></li>
+          <li><b>上抱插。</b><p>副歌第一拍用边缘推入，完成帧提前 2 帧。连续三次卡点后插 0.5 秒空镜。</p></li>
+          <li><b>导出复看。</b><p>H.264、25Mbps 导出，按平台压缩后再看一遍，压缩会吃掉 1 帧，成品为准。</p></li>
+        </ol>
+      </section>
+
+      <!-- 7 榜单 -->
+      <section class="section" id="rank" aria-labelledby="hRank">
+        <div class="sec-head">
+          <span class="no">07</span>
+          <h2 id="hRank">本周卡点模板榜</h2>
+          <span class="sub">11 月 2 日—11 月 8 日下载量</span>
+        </div>
+        <ol class="rank">
+          <li><span class="n">01</span><span class="nm">边缘推入抱插 0.27s<small>PR 版 · 适配 60 帧</small></span><span class="v">下载 2,416</span></li>
+          <li><span class="n">02</span><span class="nm">军鼓滚奏八连切<small>剪映版 · 含节拍标记</small></span><span class="v">下载 1,983</span></li>
+          <li><span class="n">03</span><span class="nm">黑白闪白卡点<small>通用版 · 4 拍循环</small></span><span class="v">下载 1,507</span></li>
+          <li><span class="n">04</span><span class="nm">慢放降速渐变<small>PR 版 · 速度曲线预设</small></span><span class="v">下载 1,162</span></li>
+          <li><span class="n">05</span><span class="nm">遮罩擦除软边<small>剪映版 · 可改颜色</small></span><span class="v">下载 874</span></li>
+        </ol>
+      </section>
+
+      <!-- 8 FAQ -->
+      <section class="section" id="faq" aria-labelledby="hFaq">
+        <div class="sec-head">
+          <span class="no">08</span>
+          <h2 id="hFaq">常见问题</h2>
+          <span class="sub">8 个高频疑问</span>
+        </div>
+
+        <details class="faq" open>
+          <summary>抱插和普通擦除转场有什么区别？</summary>
+          <div class="ans"><p>抱插是后一镜头从边缘推入、包裹住前一镜头，两镜头在同一画面上叠压 2—6 帧；擦除转场是硬边推进，前后镜头不重叠。抱插的软边需要遮罩羽化 3—8 像素，硬擦除不需要。</p></div>
+        </details>
+        <details class="faq">
+          <summary>BPM 138 的曲子每拍多少秒，怎么算？</summary>
+          <div class="ans"><p>60 除以 138 得 0.4348 秒，约 0.43 秒一拍。四拍一小节约 1.74 秒。时间线上按 0.43 秒铺标记，误差累计到 1 分钟约 0.1 秒，长曲需要中途校正。</p></div>
+        </details>
+        <details class="faq">
+          <summary>30 帧素材能做卡点抱插吗？</summary>
+          <div class="ans"><p>能，但精度受限。30 帧下每帧 0.033 秒，0.27 秒的转场只有 8 帧，提前 2 帧补偿会变成明显抢拍。建议 30 帧素材把提前量收回到 1 帧，或先把素材用光流补到 60 帧再做。</p></div>
+        </details>
+        <details class="faq">
+          <summary>副歌第一拍的抱插要不要加闪白？</summary>
+          <div class="ans"><p>看画面明暗。舞台灯带类素材本身有强光，加闪白会糊掉细节；街拍夜景加 2 帧闪白能把落点强调出来。闪白时长别超过 3 帧，否则观众会以为画面出错。</p></div>
+        </details>
+        <details class="faq">
+          <summary>连续卡点多久要插空镜？</summary>
+          <div class="ans"><p>多数成片在连续 3—4 次卡点后插一段 0.5—1 秒空镜。以 2 分 14 秒的样片为例，全片 26 次剪切插了 4 段空镜，平均每 55 秒一次，节奏不塌。</p></div>
+        </details>
+        <details class="faq">
+          <summary>剪映能做出逐帧级的抱插吗？</summary>
+          <div class="ans"><p>可以，但要把时间线放大到最大帧级视图，用关键帧控制蒙版位置。剪映的蒙版关键帧最小间隔为 1 帧，够用；缺点是边缘羽化只能到 20 像素，硬边抱插做不了太软。</p></div>
+        </details>
+        <details class="faq">
+          <summary>导出参数怎么设才不糊？</summary>
+          <div class="ans"><p>1080p 60 帧、H.264、25Mbps 是安全基线。平台二次压缩后码率通常降到 8—12Mbps，所以源文件别卡着 15Mbps 导，留出余量。H.265 体积小，但部分手机端播放兼容差。</p></div>
+        </details>
+        <details class="faq">
+          <summary>素材文件名里的 BPM 标注有什么用？</summary>
+          <div class="ans"><p>剪辑时能直接筛出与曲子同速的片段，省去逐条试拍。11 月 1 日起命名统一为「BPM-场景-时长-帧率」，例如 138-stage-06s-60f，旧命名 12 月底前仍可检索。</p></div>
+        </details>
+      </section>
+
+      <!-- 9 用户评论 -->
+      <section class="section" id="comments" aria-labelledby="hCm">
+        <div class="sec-head">
+          <span class="no">09</span>
+          <h2 id="hCm">用户评论：踩过坑的人怎么说</h2>
+          <span class="sub">11 月 3 日—11 月 8 日</span>
+        </div>
+        <div class="cm-list">
+          <div class="cm">
+            <div class="who"><b>拍头党老宋</b><span>11-08 09:12</span></div>
+            <p>提前 2 帧这说法我试了，BPM 128 那条确实顺，但换到 152 的曲子就显得抢，后来退回 1 帧才好。</p>
+            <div class="target">指向：深度解析「可被反驳的判断」</div>
+          </div>
+          <div class="cm">
+            <div class="who"><b>半拍不准</b><span>11-07 22:40</span></div>
+            <p>0.27 秒模板在 60 帧上好用了，120 帧素材推入还是卡，手动拉长到 0.35 秒解决。</p>
+            <div class="target">指向：抱插模板 3.2 版</div>
+          </div>
+          <div class="cm">
+            <div class="who"><b>剪到凌晨三点</b><span>11-06 18:05</span></div>
+            <p>节拍对照表挺好，就是 Excel 版时间码是文本格式，导入 PR 还得转一次，麻烦。</p>
+            <div class="target">指向：11 月 7 日节拍对照表 v2</div>
+          </div>
+          <div class="cm">
+            <div class="who"><b>夜行档案</b><span>11-05 15:20</span></div>
+            <p>街拍那支片子我自己重剪过，抱插放拍中反而更像镜头被撞了一下，看用途吧。</p>
+            <div class="target">指向：精选「0.27 秒短抱插」</div>
+          </div>
+          <div class="cm">
+            <div class="who"><b>帧率实验室</b><span>11-04 11:33</span></div>
+            <p>240 帧降速那段，军鼓滚奏分三档速度递减，时间点卡在 1 分 20 秒，可以逐帧对一下。</p>
+            <div class="target">指向：精选「降速到 40%」</div>
+          </div>
+          <div class="cm">
+            <div class="who"><b>路人甲</b><span>11-03 20:47</span></div>
+            <p>素材下载页得登录，没登录只能看缩略图，这点不太方便。</p>
+            <div class="target">指向：站内素材入口</div>
+          </div>
+          <div class="cm">
+            <div class="who"><b>鼓点强迫症</b><span>11-02 08:16</span></div>
+            <p>第 6 卷的军鼓滚奏卡点，第 3 拍落点其实偏了 1 帧，我逐帧拉过，不是黑。</p>
+            <div class="target">指向：素材库第 6 卷</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 相关资讯 -->
+      <section class="section" id="news" aria-labelledby="hNews">
+        <div class="sec-head">
+          <span class="no">10</span>
+          <h2 id="hNews">相关资讯</h2>
+          <span class="sub">平台与工具动态</span>
+        </div>
+        <div class="news-grid">
+          <div class="news-item">
+            <h3><a href="/#latest">剪映 11 月桌面版更新蒙版关键帧精度</a></h3>
+            <p>11 月 4 日发布的版本把蒙版关键帧最小间隔从 2 帧改为 1 帧，抱插类转场的逐帧控制变可行。</p>
+          </div>
+          <div class="news-item">
+            <h3><a href="/#latest">PR 2026 版本改速度曲线默认插值</a></h3>
+            <p>默认从线性改为贝塞尔，慢放降速的过渡更平滑，但已有工程打开需手动重设，否则节奏会变。</p>
+          </div>
+          <div class="news-item">
+            <h3><a href="/#deep">某音乐平台开放 BPM 与重音标记数据查询</a></h3>
+            <p>11 月 5 日起可在曲目页查到 BPM 与拍号，重音标记数据尚未公开，仍要自己量。</p>
+          </div>
+          <div class="news-item">
+            <h3><a href="/#guide">60 帧手机拍摄普及后，卡点素材供应量涨</a></h3>
+            <p>近两周新增素材中 60 帧占比升到 58%，比上月同期高 11 个百分点，30 帧素材仍占存量主体。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 相关推荐 -->
+      <section class="section" id="rel" aria-labelledby="hRel">
+        <div class="sec-head">
+          <span class="no">11</span>
+          <h2 id="hRel">相关推荐</h2>
+          <span class="sub">按搜索词看</span>
+        </div>
+        <div class="tag-cloud">
+          <a href="/#deep">抱插转场时长怎么定</a>
+          <a href="/#guide">BPM 138 卡点时间码</a>
+          <a href="/#faq">30 帧素材补 60 帧</a>
+          <a href="/#latest">军鼓滚奏八连切模板</a>
+          <a href="/#rank">剪映蒙版关键帧设置</a>
+          <a href="/#guide">慢放降速卡点曲线</a>
+          <a href="/#deep">副歌第一拍闪白几帧</a>
+          <a href="/#overview">空镜呼吸多长合适</a>
+          <a href="/#latest">1080p 60 帧导出码率</a>
+          <a href="/#cats">舞台灯带卡点素材</a>
+        </div>
+      </section>
+
+      <!-- 12 创作者证言 -->
+      <section class="section" id="voice" aria-labelledby="hVoice">
+        <div class="sec-head">
+          <span class="no">12</span>
+          <h2 id="hVoice">创作者证言</h2>
+          <span class="sub">三个具体做法</span>
+        </div>
+        <div class="grid-3">
+          <div class="card pad">
+            <p class="small">“我的流程是先量重音再选素材，反过来做会挑到好看但不对拍的片段。”</p>
+            <div class="meta-row" style="margin-top:8px"><span class="pill">帧率实验室</span><span>2 分 14 秒样片作者</span></div>
+          </div>
+          <div class="card pad">
+            <p class="small">“抱插模板我只改两个数：转场时长和羽化像素，其他别动，动了容易失控。”</p>
+            <div class="meta-row" style="margin-top:8px"><span class="pill b">剪影工坊</span><span>抱插三连模板</span></div>
+          </div>
+          <div class="card pad">
+            <p class="small">“一条片子最多两种转场，多了观众记不住节奏，反而觉得乱。”</p>
+            <div class="meta-row" style="margin-top:8px"><span class="pill g">夜行档案</span><span>街拍卡点作者</span></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 侧栏 -->
+    <aside class="side" aria-label="侧栏导航与速览">
+      <div class="side-box">
+        <h2>本页导航</h2>
+        <ul class="side-nav" id="sideNav">
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#featured">精选内容推荐</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#cats">分类入口</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#rank">本周模板榜</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#rel">相关推荐</a></li>
+          <li><a href="/#voice">创作者证言</a></li>
+        </ul>
+      </div>
+      <div class="side-box">
+        <h2>速览</h2>
+        <ul class="side-mini">
+          <li><b>BPM 138</b><span>每拍 0.43 秒，副歌抱插最常用曲速</span></li>
+          <li><b>0.27 秒</b><span>3.2 版抱插模板转场时长</span></li>
+          <li><b>前 2 帧</b><span>BPM 138 以下的落点补偿量</span></li>
+          <li><b>25Mbps</b><span>1080p 60 帧导出建议码率</span></li>
+        </ul>
+        <p class="side-note">数据来自 11 月 2 日至 11 月 8 日的素材库与模板下载记录，示例条目按垂类结构生成。</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brandline">
+          <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#ff5c38"/>
+            <rect x="12" y="38" width="7" height="12" rx="2" fill="#12181f"/>
+            <rect x="23" y="26" width="7" height="24" rx="2" fill="#12181f"/>
+            <rect x="34" y="14" width="7" height="36" rx="2" fill="#12181f"/>
+            <rect x="45" y="30" width="7" height="20" rx="2" fill="#f6f4ef"/>
+          </svg>
+          <b>pmv混剪卡点抱插</b>
+        </div>
+        <p>做卡点混剪的节拍工具库：量重音、挑片段、套抱插模板，把转场落点误差压到 1 帧以内。</p>
+      </div>
+      <div>
+        <h3>素材</h3>
+        <ul>
+          <li><a href="/#featured">军鼓滚奏卡点片段</a></li>
+          <li><a href="/#cats">抱插转场模板</a></li>
+          <li><a href="/#guide">慢放降速原片</a></li>
+          <li><a href="/#latest">本周更新清单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>方法</h3>
+        <ul>
+          <li><a href="/#deep">抱插落点拆解</a></li>
+          <li><a href="/#guide">六步剪辑流程</a></li>
+          <li><a href="/#faq">节拍与帧率问答</a></li>
+          <li><a href="/#rank">模板下载榜</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>社区</h3>
+        <ul>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#voice">创作者证言</a></li>
+          <li><a href="/#news">平台工具动态</a></li>
+          <li><a href="/#rel">搜索词推荐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>站内素材、模板、评论为示例数据，用于展示内容结构，非真实下载记录。</span>
+      <span>更新时间 2026-11-08，对应正文「最新更新」11 月 7 日条目。</span>
+      <span class="right">© 2026 pmv混剪卡点抱插 · 内容与图形均为原创示例</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部" title="回到顶部">↑</button>
+
+<script>
+(function(){
+  var navToggle = document.getElementById('navToggle');
+  var topNav = document.getElementById('topNav');
+  navToggle.addEventListener('click', function(){
+    var open = topNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.textContent = open ? '收起' : '菜单';
+  });
+  topNav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && window.matchMedia('(max-width:760px)').matches){
+      topNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded','false');
+      navToggle.textContent = '菜单';
+    }
+  });
+
+  var form = document.getElementById('searchForm');
+  var input = document.getElementById('q');
+  var fb = document.getElementById('searchFeedback');
+  var targets = Array.prototype.slice.call(document.querySelectorAll('main h2, main h3, main .tight-list .t, main .cat-card b, main .side-mini b'));
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var kw = (input.value || '').trim().toLowerCase();
+    if(!kw){ fb.textContent = '请输入关键词，例如“抱插”“BPM 138”“军鼓”。'; fb.classList.add('show'); return; }
+    var hit = null;
+    for(var i=0;i<targets.length;i++){
+      if(targets[i].textContent.toLowerCase().indexOf(kw) > -1){ hit = targets[i]; break; }
+    }
+    if(hit){
+      var sec = hit.closest('section') || hit.closest('.side-box');
+      if(sec && sec.id){
+        fb.textContent = '已找到相关内容：' + hit.textContent.trim() + '，正在跳转。';
+        fb.classList.add('show');
+        location.hash = '#' + sec.id;
+      } else {
+        fb.textContent = '已找到相关内容：' + hit.textContent.trim() + '。';
+        fb.classList.add('show');
+        hit.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    } else {
+      fb.textContent = '没有找到「' + input.value.trim() + '」。可试试“抱插”“卡点”“节拍”“慢放”“模板”。';
+      fb.classList.add('show');
+    }
+  });
+
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520){ toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href').replace('/#','#')); });
+  function onSpy(){
+    var pos = window.scrollY + 140;
+    var idx = 0;
+    for(var i=0;i<sections.length;i++){
+      if(sections[i] && sections[i].offsetTop <= pos){ idx = i; }
+    }
+    links.forEach(function(a,i){ a.classList.toggle('active', i === idx); });
+  }
+  window.addEventListener('scroll', onSpy, {passive:true});
+  onSpy();
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"pmv混剪卡点抱插",
+  "description":"卡点混剪与抱插转场的节拍工具库，含素材分类、节拍对照表、转场模板与逐帧拆解。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"抱插和普通擦除转场有什么区别？","acceptedAnswer":{"@type":"Answer","text":"抱插是后一镜头从边缘推入、包裹住前一镜头，两镜头在同一画面上叠压 2—6 帧；擦除转场是硬边推进，前后镜头不重叠。"}},
+    {"@type":"Question","name":"BPM 138 的曲子每拍多少秒，怎么算？","acceptedAnswer":{"@type":"Answer","text":"60 除以 138 得 0.4348 秒，约 0.43 秒一拍。四拍一小节约 1.74 秒，长曲中途需校正累计误差。"}},
+    {"@type":"Question","name":"30 帧素材能做卡点抱插吗？","acceptedAnswer":{"@type":"Answer","text":"能，但精度受限。30 帧下每帧 0.033 秒，提前量应收回 1 帧，或先把素材补到 60 帧再做。"}},
+    {"@type":"Question","name":"副歌第一拍的抱插要不要加闪白？","acceptedAnswer":{"@type":"Answer","text":"看画面明暗。舞台灯带类素材加闪白会糊掉细节；街拍夜景加 2 帧闪白能强调落点，闪白不超过 3 帧。"}},
+    {"@type":"Question","name":"连续卡点多久要插空镜？","acceptedAnswer":{"@type":"Answer","text":"多数成片在连续 3—4 次卡点后插 0.5—1 秒空镜。2 分 14 秒样片全片 26 次剪切插了 4 段空镜。"}},
+    {"@type":"Question","name":"剪映能做出逐帧级的抱插吗？","acceptedAnswer":{"@type":"Answer","text":"可以，需放大到帧级视图并用蒙版关键帧控制位置。剪映蒙版关键帧最小间隔为 1 帧，羽化最多 20 像素。"}},
+    {"@type":"Question","name":"导出参数怎么设才不糊？","acceptedAnswer":{"@type":"Answer","text":"1080p 60 帧、H.264、25Mbps 是安全基线。平台二次压缩后码率通常降到 8—12Mbps，源文件需留余量。"}},
+    {"@type":"Question","name":"素材文件名里的 BPM 标注有什么用？","acceptedAnswer":{"@type":"Answer","text":"剪辑时能筛出与曲子同速的片段，省去逐条试拍。11 月 1 日起命名统一为「BPM-场景-时长-帧率」。"}}
+  ]
+}
+</script>
+</body>
+  </html>
